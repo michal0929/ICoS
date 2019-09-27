@@ -1,4 +1,4 @@
-<img src="https://github.com//michal0929/ICoS/blob/master/users/static_in_users/static_files/static/img/icon.png" >
+<img src="https://github.com//michal0929/ICoS/blob/master/users/static_in_users/static_files/static/img/icon.png" width="400" height="400">
 # Installation
 Assuming you use virtualenv, follow these steps to download and run the
 ICoS application in this directory:
