@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+{% include 'breadcrumb.html' %}
+
+<div class="uk-width-9-10 uk-container-center">
+	<div class="uk-grid uk-grid-large uk-grid-divider">
+		<div class="uk-width-1-2">	
+			<form method="post" class="uk-form uk-form-stacked" action="{% url 'settings' %}">
+				{% csrf_token %}
+				<legend>Change account details</legend>
+
+				{% if details_form.non_field_errors %}
+				<div class="uk-alert uk-alert-danger">{{ details_form.non_field_errors }}</div>
+				{% endif %}
+
+				{% if details_form.hidden_fields %}
+				<div class="uk-alert uk-alert-danger">
+				{% for hidden_field in details_form.hidden_fields %}
+					{{ hidden_field.errors }}
+					{{ hidden_field }}
+				{% endfor %}
+				</div>
+				{% endif %}
+
+		
+				{% for field in details_form.visible_fields %}
+				<div class="uk-form-row">
+					<label class="uk-form-label" for="{{ field.name }}">{{ field.label_tag|safe }}</label>
+		
+					{% if field.errors %}
+					<div class="uk-alert uk-alert-danger">{{ field.errors.as_text }}</div>
+					{% endif %}
+		
+					<div class="uk-form-controls">
+						{{ field }}
+						<p class="uk-form-help-block"><em>{{ field.help_text }}</em></p>
+					</div>
+				</div>
+				{% endfor %}
+		
+				<div class="uk-form-row">
+					<button name="submit" value="Submit" class="uk-button uk-button-primary">Submit</button>
+				</div>
+			</form>
+		</div>
+
+		<div class="uk-width-1-2">
+			<form method="post" class="uk-form uk-form-stacked" action="{% url 'settings' %}">
+				{% csrf_token %}
+				<legend>Password change</legend>
+		
+				{% if password_form.non_field_errors %}
+				<div class="uk-alert uk-alert-danger">{{ password_form.non_field_errors }}</div>
+				{% endif %}
+		
+				{% if password_form.hidden_fields %}
+				<div class="uk-alert uk-alert-danger">
+				{% for hidden_field in password_form.hidden_fields %}
+					{{ hidden_field.errors }}
+					{{ hidden_field }}
+				{% endfor %}
+				</div>
+				{% endif %}
+		
+				{% for field in password_form.visible_fields %}
+				<div class="uk-form-row">
+					<label class="uk-form-label" for="{{ field.name }}">{{ field.label_tag|safe }}</label>
+		
+					{% if field.errors %}
+					<div class="uk-alert uk-alert-danger">{{ field.errors.as_text }}</div>
+					{% endif %}
+		
+					<div class="uk-form-controls">
+						{{ field }}
+						<p class="uk-form-help-block"><em>{{ field.help_text }}</em></p>
+					</div>
+				</div>
+				{% endfor %}
+		
+				<div class="uk-form-row">
+					<button name="submitPass" value="Submit Password" class="uk-button uk-button-primary">Submit</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+
+{% endblock %}

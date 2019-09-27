@@ -1,0 +1,36 @@
+label, h2, th {
+    color: rgb(27, 130, 221);
+}
+
+.admin-panel-content {
+    margin-top: 25px;
+    margin-left:10px;
+}
+
+a {
+    color: #31baf0 ;
+}
+
+.btn-primary {
+    background-color: rgb(27, 130, 221);
+}
+
+.admin-search-form {
+    margin-top: 27px;
+    margin-bottom: 10px;
+}
+
+.generic-table {
+    margin-top: 5px;
+    /* border&shadow */
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    -moz-box-shadow: 8px 8px 8px rgb(27, 130, 221);
+    -webkit-box-shadow: 8px 8px 8px rgb(27, 130, 221);
+    box-shadow: 8px 8px 8px rgb(27, 130, 221);
+}
+
+.generic-table th {
+    background-color: rgb(27, 130, 221);
+    color: white;
+}

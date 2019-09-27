@@ -1,0 +1,52 @@
+{% load static %}
+<nav class="uk-navbar uk-navbar-attached uk-position-z-index" data-uk-sticky>
+  <div class="uk-margin-small-left uk-margin-small-right">
+     
+    <a href="{% url 'home' %}" class="uk-navbar-brand uk-margin-right">
+      <img src="{% static 'static/img/icon.png' %}" width="50" alt=""> Introduction to Computer Science
+    </a>
+    <ul class="uk-navbar-nav"></ul>
+
+  </ul>
+
+        <ul class="uk-navbar-flip uk-navbar-nav"> 
+            <li class="active"><a href="/"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+            <li><a href="{% url 'about' %}"><span class="glyphicon glyphicon-info-sign"></span> About</a></li>
+            <li><a href="{% url 'contact' %}"><span class="glyphicon glyphicon-earphone"></span> Contact</a></li>
+            {% if request.user.is_authenticated %}
+              <li><a href="{% url 'courses' %}"><span class="glyphicon glyphicon-education"></span> Courses</a></li>
+         
+            {% else %}
+              <li><a href="/accounts/login"><span class="glyphicon glyphicon-education"></span> Courses</a></li>
+            {% endif %}
+            
+            {% if request.user.is_authenticated %}
+              <li><a href="{% url 'forum' %}"><span class="glyphicon glyphicon glyphicon-comment"></span> Forum</a></li>
+            {% endif %}
+
+            {% if user.is_authenticated %}
+            <li class="uk-parent" data-uk-dropdown="" aria-haspopup="true" aria-expanded="false">
+              <a href="">
+                  <img class="uk-border-circle uk-margin-small-right" src="{% static 'static/img/user.png' %}" width="40" alt="">
+                  {{ user.get_username }} <i class="uk-icon-chevron-down"></i>
+              </a>
+              <div class="uk-dropdown uk-dropdown-navbar uk-dropdown-bottom" aria-hidden="true" tabindex="" style="top: 40px; left: 0px;">
+                <ul class="uk-nav uk-nav-navbar">
+                    <li class="uk-nav-header"> My account</li>
+                  
+                      <li><a href="{% url 'profile' %}"><span class="glyphicon glyphicon-user"></span> {{ user.get_username }}</a>
+                      </li>
+                  {% if user.is_site_admin %}
+                  <li><a href="/admin"><span class="glyphicon glyphicon-list-alt"></span> Extended admin</a>
+                  </li>
+                  {% endif %}
+                    <li><a href="{% url 'setting_user' %}"><span class="glyphicon glyphicon-wrench	
+                      "></span> Account settings</a></li>
+                    <li><a href="/accounts/logout"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+                  {% else %}
+                    <li><a href="/accounts/register"><span class="glyphicon glyphicon-plus"></span> Sign Up</a></li>
+                    <li><a href="/accounts/login"><span class="glyphicon glyphicon-user"></span> Log In</a></li>
+                  {% endif %}
+                  </ul>   
+  </div>
+</nav>

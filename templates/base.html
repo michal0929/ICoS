@@ -1,0 +1,108 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" class="uk-notouch">
+<head>
+  {% block title %}
+	<title>ICoS</title>
+	{% endblock %}
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" 
+	type="image.png" 
+	href="{% static 'static/img/icon.png' %}">
+	<!-- Add additional CSS in static file -->
+	{% load staticfiles %}
+	<link rel="stylesheet" href={% static 'static/uikit/css/uikit.almost-flat.css' %} />
+	<link rel="stylesheet" href={% static 'static/uikit/css/components/sticky.min.css' %} />
+	<link rel="stylesheet" href={% static 'static/uikit/css/components/slidenav.css' %} />
+	<link rel="stylesheet" href={% static 'static/uikit/css/components/tooltip.min.css' %} />
+	<link rel="stylesheet" href={% static 'static/uikit/css/components/notify.almost-flat.min.css' %} />
+	<link rel="stylesheet" href={% static 'static/uikit/css/components/htmleditor.almost-flat.css' %} />
+	<link rel="stylesheet" href={% static 'static/codemirror/addon/scroll/simplescrollbars.css' %}/>
+
+
+	<script src={% static 'static/uikit/js/jquery-3.3.1.min.js' %}></script>
+	<script src={% static 'static/jquery.formset.js' %}></script> 
+	
+	<script src={% static 'static/uikit/js/uikit.min.js' %}></script>
+	<script src={% static 'static/uikit/js/components/sticky.min.js' %}></script>
+	<script src={% static 'static/uikit/js/components/tooltip.min.js' %}></script>
+	<script src={% static 'static/uikit/js/components/lightbox.min.js' %}></script>
+	<script src={% static 'static/uikit/js/components/grid.min.js' %}></script>
+	<script src={% static 'static/uikit/js/components/notify.min.js' %}></script>
+	<script src={% static 'static/uikit/js/components/htmleditor.js' %}></script>
+	<script src={% static 'static/codemirror/addon/mode/overlay.js' %}></script>
+	<script src={% static 'static/codemirror/addon/scroll/simplescrollbars.js' %}></script>
+	<script src={% static 'static/codemirror/mode/xml/xml.js' %}></script>
+	<script src={% static 'static/codemirror/mode/gfm/gfm.js' %}></script>
+	<script src={% static 'static/marked.min.js' %}></script>
+
+	{% include 'head_css.html' %}
+</head>
+<body id="body" style="min-width: 1064px;">
+	{% include 'javascript.html' %}
+	{% include "navbar.html" %}
+	
+	<div class="uk-block uk-containter-center uk-margin-left uk-margin-right uk-margin-top uk-margin-bottom uk-margin-remove-top uk-margin-remove-bottom uk-padding-remove">
+		{% block cotainer_start %} 
+		{% endblock %}
+		<div class="uk-grid">
+			<div class="uk-width-1-5">
+				
+				<div class="uk-panel uk-panel-box uk-panel-box-main">
+						<center><img src="{% static 'static/img/icon.png' %}" max-width: 100%; height: auto> </center>
+						<hr>
+						{% block sidemenu %} 
+						{% endblock %}
+						<hr>
+					<h3 class="uk-text-bold"><i class="uk-icon-hashtag"></i> Remember</h3>
+					<div class="uk-grid">
+						<div class="uk-width-1-1">
+							
+							
+								
+							<em> <center> "In Theory There Is No Difference Between Theory and Practice, While In Practice There Is" - Yogi Berra. </center></em>
+							<br>
+							
+							<hr>
+							<p>
+									<br>
+									<a href="{% static 'static/img/ITpng.png' %}" data-uk-lightbox="{group:'group2'}" title="IT">
+										<img src="{% static 'static/img/ITpng.png' %}" width="800" height="600" alt="">
+									</a>
+							</p>
+							<br>
+							<hr>
+
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="uk-width-4-5 uk-padding-remove">
+				<div class="uk-panel uk-panel-box uk-panel-box-main uk-margin-left">
+					<!-- <div class="uk-panel-badge uk-badge">..TEST.</div> -->
+					<h3 class="uk-panel-title">
+						{% block breadcrumbs %}{% endblock %}
+					</h3>
+					<div class="uk-grid">
+						{% block content %} 
+						{% endblock %}
+					</div>
+				</div>
+			</div>
+		</div>
+		{% block container_end %} 
+		{% endblock %}
+	</div>
+	<br>
+	<div>
+			<footer class="uk-text-center">
+				<p></p>
+					<b>ICoS &copy 2019 <br> Michał Kierzkowski <br> <a href="mailto:sysicos2019@gmail.com">
+							sysicos2019@gmail.com</a></b>
+				</footer>
+	</div>
+</body>
+</html>

@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% load static %}
+
+
+
+{% block content %}
+{% include 'breadcrumb.html' %}
+<div class="uk-width-1-1">
+	<h1>Welcome in <em>ICoS</em> ...</h1>
+	<h3 class="uk-text-bold"> ... the only such Internet site through which we will present you knowledge on basic IT issues in an easy, legible and accessible way.</h3>
+	<h3 class="uk-text-bold">Already <b>{{ users_count }}</b> users use our site. Join and you !!!!</h3>
+	<br>
+	<div class="uk-block uk-block-muted">
+		<div class="uk-container uk-container-center">
+			<!-- <h1>Galeria witryny</h1> -->
+			<ul id="filter" class="uk-subnav uk-subnav-pill">
+				<li class="uk-active" data-uk-filter=""><a href="#">All</a></li>
+				<li data-uk-filter="filter-kursy" class=""><a href="#">Site</a></li>
+				<li data-uk-filter="filter-zasoby" class=""><a href="#">Courses</a></li>
+				<li data-uk-filter="filter-postep" class=""><a href="#">Modules</a></li>
+				<li data-uk-filter="filter-profil" class=""><a href="#">Profil</a></li>
+
+			</ul>
+			
+			<div class="uk-grid-width-small-1-2 uk-grid-width-medium-1-3 uk-grid-width-large-1-4 tm-grid-heights"
+				data-uk-grid="{gutter: 20, controls: '#filter'}" style="position: relative; margin-left: -20px; height: 394px;">
+				{% comment %} Courses {% endcomment %}
+				<div data-uk-filter="filter-kursy" data-grid-prepared="true" aria-hidden="false" 
+				style="position: absolute; box-sizing: border-box; padding-left: 20px; padding-bottom: 20px; top: 0px; opacity: 1; left: 0px; display: block;">
+					<a href="{% static 'static/img/courses.jpg' %}" data-uk-lightbox="{group:'group2'}" title="Spreadsheets list">
+						<img src="{% static 'static/img/courses.jpg' %}" width="800" height="600" alt="">
+					</a>
+				</div>
+		
+				{% comment %} Modules {% endcomment %}
+				<div data-uk-filter="filter-zasoby" data-grid-prepared="true" aria-hidden="false" 
+				style="position: absolute; box-sizing: border-box; padding-left: 20px; padding-bottom: 20px; top: 0px; opacity: 1; left: 0px; display: block;">
+					<a href="{% static 'static/img/modul.jpg' %}" data-uk-lightbox="{group:'group2'}" title="Plots list">
+						<img src="{% static 'static/img/modul.jpg' %}" width="800" height="600" alt="">
+					</a>
+				</div>
+				{% comment %} Site{% endcomment %}
+				<div data-uk-filter="filter-postep" data-grid-prepared="true" aria-hidden="false" 
+				style="position: absolute; box-sizing: border-box; padding-left: 20px; padding-bottom: 20px; top: 0px; opacity: 1; left: 0px; display: block;">
+					<a href="{% static 'static/img/forum.jpg' %}" data-uk-lightbox="{group:'group2'}" title="Reports preview">
+						<img src="{% static 'static/img/forum.jpg' %}" width="800" height="600" alt="">
+					</a>
+				</div>
+				<div data-uk-filter="filter-postep" data-grid-prepared="true" aria-hidden="false" 
+				style="position: absolute; box-sizing: border-box; padding-left: 20px; padding-bottom: 20px; top: 0px; opacity: 1; left: 0px; display: block;">
+					<a href="{% static 'static/img/kontakt.jpg' %}" data-uk-lightbox="{group:'group2'}" title="Reports preview">
+						<img src="{% static 'static/img/kontakt.jpg' %}" width="800" height="600" alt="">
+					</a>
+				</div>
+		
+				{% comment %} Profil {% endcomment %}
+				<div data-uk-filter="filter-profil" data-grid-prepared="true" aria-hidden="false" 
+				style="position: absolute; box-sizing: border-box; padding-left: 20px; padding-bottom: 20px; top: 0px; opacity: 1; left: 0px; display: block;">
+					<a href="{% static 'static/img/Profesor.jpg' %}" data-uk-lightbox="{group:'group2'}" title="Reports preview">
+						<img src="{% static 'static/img/Profesor.jpg' %}" width="800" height="600" alt="">
+					</a>
+				</div>
+				<div data-uk-filter="filter-profil" data-grid-prepared="true" aria-hidden="false" 
+				style="position: absolute; box-sizing: border-box; padding-left: 20px; padding-bottom: 20px; top: 0px; opacity: 1; left: 0px; display: block;">
+					<a href="{% static 'static/img/ustawienia.jpg' %}" data-uk-lightbox="{group:'group2'}" title="Reports preview">
+						<img src="{% static 'static/img/ustawienia.jpg' %}" width="800" height="600" alt="">
+					</a>
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+{% endblock %}
+
+

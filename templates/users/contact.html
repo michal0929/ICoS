@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% load staticfiles %}
+
+
+{% block content %}
+  <!-- Contact core css -->
+  <link href="{% static "static/css/contact.css" %}" rel="stylesheet"/>
+  {% include 'breadcrumb.html' %}
+
+  <div class="contact">
+    <div class="container">
+      <div class="row">
+
+        <div class="col-xs-12  col-md-6 col-md-offset-3">
+          {% if messages %}
+            {% for message in messages %}
+              <p{% if message.tags %} class="alert alert-success"{% endif %}>{{ message }}</p>
+            {% endfor %}
+          {% endif %}
+        </div>
+
+        <form method='POST' action='' class="col-md-5 col-xs-12">
+          {% csrf_token %}
+          {{ contact_form | crispy }}
+          <input type="submit" value="Submit" class="btn btn-block btn-primary">
+        </form>
+
+        <div class="row col-md-6 col-md-offset-1 contact_details">
+
+          <h4>Address :</h4>
+          <i class="address"></i>
+          <div class="contact_address">
+            Wiejska 45A, 15-351 Białystok<br><br>
+          </div>
+
+          <h4>Phone :</h4>
+          <i class="phone"></i>
+          <div class="contact_address">
+            85-746-90-55<br>
+            85-746-90-57<br><br>
+          </div>
+
+          <h4>Email :</h4>
+          <i class="mail"></i>
+          <div class="contact_mail">
+            sysicos2019@gmail.com
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+{% endblock %}
