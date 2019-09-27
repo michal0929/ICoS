@@ -1,0 +1,38 @@
+label, h2, th {
+    color: rgb(27, 130, 221);
+}
+
+.professor-panel-content {
+    margin-top: 25px !important;
+}
+
+.generic-table {
+    margin-top: 5px;
+    /* border&shadow */
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    -moz-box-shadow: 8px 8px 8px rgb(27, 130, 221);
+    -webkit-box-shadow: 8px 8px 8px rgb(27, 130, 221);
+    box-shadow: 8px 8px 8px rgb(27, 130, 221);
+}
+
+.generic-table td a {
+    text-decoration: none;
+}
+
+.generic-table th {
+    background-color: rgb(27, 130, 221);
+    color: white;
+}
+
+.generic-table td, th {
+    text-align: center;
+}
+
+.btn-info {
+    background-color: rgb(27, 130, 221);
+}
+
+.btn-primary {
+    background-color: rgb(27, 130, 221);
+}

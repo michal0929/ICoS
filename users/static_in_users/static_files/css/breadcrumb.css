@@ -1,0 +1,48 @@
+/*--breadcrumb--*/
+.bread-h {
+    background: #07D;
+    margin-bottom: 50px;
+}
+
+.spacing-path {
+    color: white;
+}
+
+.title-section {
+    background: #07D;
+    position: relative;
+    border-bottom: 1px solid #07D;
+}
+
+.title-section h1 {
+    margin: 0 0 5px 0;
+    line-height: 58px;
+    font-size: 40px;
+    font-weight: bold;
+    color: #fff;
+}
+
+.title-section ul {
+    background: #07D;
+    position: relative;
+    margin: 0;
+    padding: 9px 0 10px 0;
+    border-top: 1px solid #07D;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+}
+
+.title-section ul li {
+    line-height: 18px;
+    font-size: 13px;
+    color: #07D;
+}
+
+.title-section ul li a {
+    color: #fff;
+}
+
+.breadcrumb > .active {
+    color: #07D;
+}
