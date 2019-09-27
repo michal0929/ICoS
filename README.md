@@ -1,4 +1,4 @@
-<img src="https://github.com/Bcoolie/eLearning/blob/master/users/static_in_users/static_files/static/img/icon.png" >
+<img src="https://github.com/michal0929/ICoS/users/static_in_users/static_files/static/img/icon.png" >
 # Installation
 Assuming you use virtualenv, follow these steps to download and run the
 ICoS application in this directory:
