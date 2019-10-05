@@ -2,7 +2,8 @@
 .bread-h {
     background: rgb(27, 130, 221);
     margin-bottom: 20px;
-    margin-left:10px;
+    margin-left:30px;
+    position: relative;
 }
 
 .spacing-path {

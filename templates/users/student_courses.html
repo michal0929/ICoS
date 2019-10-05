@@ -5,7 +5,7 @@
 {% block sidemenu %}
 <h4>Most popular:</h4>
 <dl class="uk-description-list-line">
-  {% for instance in chapter_list|slice:"1:3" %}
+  {% for instance in chapter_list|slice:"0:3" %}
   <dt>
     <a class="uk-link-muted"  href="{% url 'student_course' course_name instance.slug %}">{{ instance.chapter_name }}</a>
   </dt>

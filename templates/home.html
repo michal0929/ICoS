@@ -17,9 +17,9 @@
 			<!-- <h1>Galeria witryny</h1> -->
 			<ul id="filter" class="uk-subnav uk-subnav-pill">
 				<li class="uk-active" data-uk-filter=""><a href="#">All</a></li>
-				<li data-uk-filter="filter-kursy" class=""><a href="#">Site</a></li>
-				<li data-uk-filter="filter-zasoby" class=""><a href="#">Courses</a></li>
-				<li data-uk-filter="filter-postep" class=""><a href="#">Modules</a></li>
+				<li data-uk-filter="filter-kursy" class=""><a href="#">Courses</a></li>
+				<li data-uk-filter="filter-zasoby" class=""><a href="#">Quizzes</a></li>
+				<li data-uk-filter="filter-postep" class=""><a href="#">Forum</a></li>
 				<li data-uk-filter="filter-profil" class=""><a href="#">Profil</a></li>
 
 			</ul>
@@ -29,43 +29,54 @@
 				{% comment %} Courses {% endcomment %}
 				<div data-uk-filter="filter-kursy" data-grid-prepared="true" aria-hidden="false" 
 				style="position: absolute; box-sizing: border-box; padding-left: 20px; padding-bottom: 20px; top: 0px; opacity: 1; left: 0px; display: block;">
-					<a href="{% static 'static/img/courses.jpg' %}" data-uk-lightbox="{group:'group2'}" title="Spreadsheets list">
-						<img src="{% static 'static/img/courses.jpg' %}" width="800" height="600" alt="">
+					<a href="{% static 'static/img/kurs1.jpg' %}" data-uk-lightbox="{group:'group2'}" title="Courses">
+						<img src="{% static 'static/img/kurs1.jpg' %}" width="800" height="600" alt="">
 					</a>
 				</div>
-		
-				{% comment %} Modules {% endcomment %}
+				<div data-uk-filter="filter-kursy" data-grid-prepared="true" aria-hidden="false" 
+				style="position: absolute; box-sizing: border-box; padding-left: 20px; padding-bottom: 20px; top: 0px; opacity: 1; left: 0px; display: block;">
+					<a href="{% static 'static/img/kurs2.jpg' %}" data-uk-lightbox="{group:'group2'}" title="Courses">
+						<img src="{% static 'static/img/kurs2.jpg' %}" width="800" height="600" alt="">
+					</a>
+				</div>
+				<div data-uk-filter="filter-kursy" data-grid-prepared="true" aria-hidden="false" 
+				style="position: absolute; box-sizing: border-box; padding-left: 20px; padding-bottom: 20px; top: 0px; opacity: 1; left: 0px; display: block;">
+					<a href="{% static 'static/img/kurs3.jpg' %}" data-uk-lightbox="{group:'group2'}" title="Courses">
+						<img src="{% static 'static/img/kurs3.jpg' %}" width="800" height="600" alt="">
+					</a>
+				</div>
+				{% comment %} Quizzes {% endcomment %}
 				<div data-uk-filter="filter-zasoby" data-grid-prepared="true" aria-hidden="false" 
 				style="position: absolute; box-sizing: border-box; padding-left: 20px; padding-bottom: 20px; top: 0px; opacity: 1; left: 0px; display: block;">
-					<a href="{% static 'static/img/modul.jpg' %}" data-uk-lightbox="{group:'group2'}" title="Plots list">
-						<img src="{% static 'static/img/modul.jpg' %}" width="800" height="600" alt="">
+					<a href="{% static 'static/img/forum1.jpg' %}" data-uk-lightbox="{group:'group2'}" title="Quizzes ">
+						<img src="{% static 'static/img/forum1.jpg' %}" width="800" height="600" alt="">
 					</a>
 				</div>
-				{% comment %} Site{% endcomment %}
+				{% comment %} Forum {% endcomment %}
 				<div data-uk-filter="filter-postep" data-grid-prepared="true" aria-hidden="false" 
 				style="position: absolute; box-sizing: border-box; padding-left: 20px; padding-bottom: 20px; top: 0px; opacity: 1; left: 0px; display: block;">
-					<a href="{% static 'static/img/forum.jpg' %}" data-uk-lightbox="{group:'group2'}" title="Reports preview">
-						<img src="{% static 'static/img/forum.jpg' %}" width="800" height="600" alt="">
+					<a href="{% static 'static/img/forum1.jpg' %}" data-uk-lightbox="{group:'group2'}" title="Forum">
+						<img src="{% static 'static/img/forum1.jpg' %}" width="800" height="600" alt="">
 					</a>
 				</div>
 				<div data-uk-filter="filter-postep" data-grid-prepared="true" aria-hidden="false" 
 				style="position: absolute; box-sizing: border-box; padding-left: 20px; padding-bottom: 20px; top: 0px; opacity: 1; left: 0px; display: block;">
-					<a href="{% static 'static/img/kontakt.jpg' %}" data-uk-lightbox="{group:'group2'}" title="Reports preview">
-						<img src="{% static 'static/img/kontakt.jpg' %}" width="800" height="600" alt="">
+					<a href="{% static 'static/img/forum2.jpg' %}" data-uk-lightbox="{group:'group2'}" title="Forum">
+						<img src="{% static 'static/img/forum2.jpg' %}" width="800" height="600" alt="">
 					</a>
 				</div>
 		
 				{% comment %} Profil {% endcomment %}
 				<div data-uk-filter="filter-profil" data-grid-prepared="true" aria-hidden="false" 
 				style="position: absolute; box-sizing: border-box; padding-left: 20px; padding-bottom: 20px; top: 0px; opacity: 1; left: 0px; display: block;">
-					<a href="{% static 'static/img/Profesor.jpg' %}" data-uk-lightbox="{group:'group2'}" title="Reports preview">
-						<img src="{% static 'static/img/Profesor.jpg' %}" width="800" height="600" alt="">
+					<a href="{% static 'static/img/profil1.jpg' %}" data-uk-lightbox="{group:'group2'}" title="Profil">
+						<img src="{% static 'static/img/profil1.jpg' %}" width="800" height="600" alt="">
 					</a>
 				</div>
 				<div data-uk-filter="filter-profil" data-grid-prepared="true" aria-hidden="false" 
 				style="position: absolute; box-sizing: border-box; padding-left: 20px; padding-bottom: 20px; top: 0px; opacity: 1; left: 0px; display: block;">
-					<a href="{% static 'static/img/ustawienia.jpg' %}" data-uk-lightbox="{group:'group2'}" title="Reports preview">
-						<img src="{% static 'static/img/ustawienia.jpg' %}" width="800" height="600" alt="">
+					<a href="{% static 'static/img/profil2.jpg' %}" data-uk-lightbox="{group:'group2'}" title="Profil">
+						<img src="{% static 'static/img/profil2.jpg' %}" width="800" height="600" alt="">
 					</a>
 				</div>
 

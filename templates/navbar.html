@@ -13,14 +13,10 @@
             <li class="active"><a href="/"><span class="glyphicon glyphicon-home"></span> Home</a></li>
             <li><a href="{% url 'about' %}"><span class="glyphicon glyphicon-info-sign"></span> About</a></li>
             <li><a href="{% url 'contact' %}"><span class="glyphicon glyphicon-earphone"></span> Contact</a></li>
+   
             {% if request.user.is_authenticated %}
-              <li><a href="{% url 'courses' %}"><span class="glyphicon glyphicon-education"></span> Courses</a></li>
-         
-            {% else %}
-              <li><a href="/accounts/login"><span class="glyphicon glyphicon-education"></span> Courses</a></li>
-            {% endif %}
-            
-            {% if request.user.is_authenticated %}
+              <li><a href="{% url 'courses' %}"><span class="glyphicon glyphicon-education"></span> Global courses</a></li>
+              <li><a href=""><span class="glyphicon glyphicon-check"></span> Quizzes</a></li>
               <li><a href="{% url 'forum' %}"><span class="glyphicon glyphicon glyphicon-comment"></span> Forum</a></li>
             {% endif %}
 
@@ -33,9 +29,13 @@
               <div class="uk-dropdown uk-dropdown-navbar uk-dropdown-bottom" aria-hidden="true" tabindex="" style="top: 40px; left: 0px;">
                 <ul class="uk-nav uk-nav-navbar">
                     <li class="uk-nav-header"> My account</li>
-                  
-                      <li><a href="{% url 'profile' %}"><span class="glyphicon glyphicon-user"></span> {{ user.get_username }}</a>
+                      {% if  user.is_site_admin %}
+                      <li><a href="{% url 'profile' %}"><span class="glyphicon glyphicon-briefcase"></span> Management</a>
                       </li>
+                      {% else %}
+                      <li><a href="{% url 'profile' %}"><span class="glyphicon glyphicon-paperclip"></span> Individual courses</a>
+                      </li>
+                      {% endif %}
                   {% if user.is_site_admin %}
                   <li><a href="/admin"><span class="glyphicon glyphicon-list-alt"></span> Extended admin</a>
                   </li>
