@@ -1,4 +1,7 @@
-<img src="https://github.com//michal0929/ICoS/blob/master/users/static_in_users/static_files/static/img/icon.png" width="400" height="400">
+# ICoS - Introduction to Computer Science
+[![Python Version](https://img.shields.io/badge/python-3.7-brightgreen.svg)](https://python.org)
+[![Django Version](https://img.shields.io/badge/django-1.9-brightgreen.svg)](https://djangoproject.com)
+
 # Installation
 Assuming you use virtualenv, follow these steps to download and run the
 ICoS application in this directory:
@@ -6,12 +9,11 @@ ICoS application in this directory:
     $ git clone https://github.com/michal0929/ICoS
     $ cd eLearning
     $ virtualenv venv
-    $ source ./venv/bin/activate
+    $ venv/bin/activate
     $ pip install -r requirements
     $ python manage.py migrate
     $ python manage.py runserver
 
-# Compatibility
-	* Python 2.7
-	* Django 1.9
-	* SQLite, PostgreSQL, MySQL
+## License
+
+The source code is released under the [MIT License](https://github.com/sibtc/django-multiple-user-types-example/blob/master/LICENSE).
