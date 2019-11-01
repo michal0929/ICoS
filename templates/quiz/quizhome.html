@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block sidemenu %}
+<h4>Last added:</h4>
+<dl class="uk-description-list-line">
+  {% for instance in all_quiz|dictsortreversed:"course_created_date"|slice:"0:3" %}
+  <dt>
+    <a class="uk-link-muted"  href="">{{ instance.quiz_title }}</a>
+  </dt>
+  <dd>
+    <p>Autor: {{ instance.teacher }}</p>
+  </dd>
+  {% endfor %}
+</ul>
+<hr style="color: #CCE6FF; border-color: #CCE6FF; background-color: #CCE6FF;">
+{% endblock %}
+
+
+{% block content %}
+  <!-- Course core css -->
+  {% include 'breadcrumb.html' %}
+  <link href="{% static "static/css/course.css" %}" rel="stylesheet"/>
+  <div class="container-fluid">
+
+    <div class="row">
+     
+      <div class="col-xs-12  col-md-6 col-md-offset-3 message">
+        {% if messages %}
+        {% for message in messages %}
+          <p{% if message.tags %} class="alert alert-warning"{% endif %}>{{ message }}</p>
+        {% endfor %}
+      {% endif %}
+      </div>
+      {% include 'quiz/quiz_box_model.html' %}
+    </div>
+
+  </div>
+
+{% endblock %}
+
+

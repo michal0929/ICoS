@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+
+{% block content %}
+<link href="{% static "static/css/professor.css" %}" rel="stylesheet"/>
+  {% include 'breadcrumb.html' %}
+  <div class="container-fluid">
+      <div class="row">
+          <div class="col-sm-7">
+              <div class="card">
+                  <div class="card-body">
+                      <nav aria-label="breadcrumb">
+                          <ol class="breadcrumb">
+                              <li class="breadcrumb-item active" aria-current="page"><font color="blue">{{ quiz.quiz_title }}</font></li>
+                              <li class="breadcrumb-item active" aria-current="page"><font color="blue">Add Question</font></li>
+                          </ol>
+                      </nav>
+                  </div>
+                  <div class="card-text">
+                          <form action="" method="post">
+                              {% csrf_token %}
+                               <div class="md-form">
+                                  <input type="text" name="question_text" id="form1" class="form-control" required autocomplete="off">
+                                  <label for="form1">Question Text</label>
+                              </div>
+                              <div class="md-form">
+                                  <input type="text" name="option1" id="form2" class="form-control" required autocomplete="off">
+                                  <label for="form2">Option 1</label>
+                              </div>
+                              <div class="md-form">
+                                  <input type="text" name="option2" id="form3" class="form-control" required autocomplete="off">
+                                  <label for="form3">Option 2</label>
+                              </div>
+                              <div class="md-form">
+                                  <input type="text" name="option3" id="form4" class="form-control" required autocomplete="off">
+                                  <label for="form4">Option 3</label>
+                              </div>
+                              <div class="md-form">
+                                  <input type="text" name="option4" id="form5" class="form-control" required autocomplete="off">
+                                  <label for="form5">Option 4</label>
+                              </div>
+                              <div class="md-form">
+                                  <input type="text" name="correct_ans" id="form6" class="form-control" required autocomplete="off">
+                                  <label for="form6">Correct Answer</label>
+                              </div>
+                              <div class="text-center mb-3">
+                                  <button class="submit btn btn-indigo"> Add Quiz </button>
+                              </div>
+                          </form>
+
+                  </div>
+              </div>
+          </div>
+          <div class="col-sm-5">
+              <div class="card">
+                  <div class="card-body">
+                      <nav aria-label="breadcrumb">
+                          <ol class="breadcrumb">
+                              <li class="breadcrumb-item active" aria-current="page"><font color="blue">Added Questions</font></li>
+                          </ol>
+                      </nav>
+                          <table class="table table-condensed table-hover generic-table table-bordered table-striped">
+                        <tbody>
+                        {% for ques in questions %}
+                          <tr>
+                            <th scope="row">{{ forloop.counter }}</th>
+                            <td>{{ ques.question_text }}</td>
+                            <td>
+                                    <a href="{% url 'delete_question' ques.question_text %}">
+                                      <input class='btn btn-danger btn-sm' type='submit' value='Delete'/>
+                                    </a>
+                            </td>        
+                          </tr>
+                        {% endfor %}
+                        </tbody>
+                      </table>
+
+
+
+                  </div>
+              </div>
+          </div>
+      </div>
+      </div>
+{% endblock  %}

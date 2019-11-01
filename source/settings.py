@@ -46,7 +46,7 @@ INSTALLED_APPS = [
     'users',
     'courses',
     'forum',
-    
+    'quiz',
 ]
 
 MIDDLEWARE_CLASSES = [

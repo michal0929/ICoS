@@ -157,6 +157,28 @@ def update_course(request, course_name=None):
 
     return render(request, "courses/edit.html", context)
 
+@user_passes_test(lambda user: user.is_professor)
+def update_quiz(request, quiz_title=None):
+    instance = Test.objects.get(quiz_title=quiz_title)
+    update_quiz_form = EditQuizForm(request.POST or None, instance=instance)
+
+    path = request.path.split('/')[1]
+    redirect_path = path
+    path = path.title()
+
+    context = {
+        "title": "Edit",
+        "form": update_quiz_form,
+        "path": path,
+        "redirect_path": redirect_path,
+    }
+
+    if update_quiz_form.is_valid():
+        update_quiz_form.save()
+        return redirect(reverse('profile'))
+
+    return render(request, "quiz/edit.html", context)
+
 
 @user_passes_test(lambda user: user.is_professor)
 def update_chapter(request, course_name=None, slug=None):
@@ -272,3 +294,12 @@ def remove_students(request, student_id, course_name=None):
     course = Course.objects.get(course_name=course_name)
     course.students.remove(student)
     return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+
+
+#quiz 
+
+@user_passes_test(lambda user: user.is_professor)
+def delete_quiz(request, quiz_title=None):
+    instance = Test.objects.get(quiz_title=quiz_title)
+    instance.delete()
+    return HttpResponseRedirect(reverse('profile'))

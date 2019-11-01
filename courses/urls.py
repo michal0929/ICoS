@@ -10,9 +10,10 @@ urlpatterns = [
         name='student_course'),
 
     url(r'^professor/(?P<course_name>[\w ]+)/$', course_views.course, name='professor_course'),
-    url(r'^professor/(?P<course_name>[\w ]+)/delete/$', course_views.delete_course, name='delete'),
+    url(r'^professor/(?P<course_name>[\w ]+)/delete/$', course_views.delete_course, name='delete'), 
+    url(r'^professor/(?P<quiz_title>[\w ]+)/deleteq/$', course_views.delete_quiz, name='deletequiz'),  
     url(r'^professor/(?P<course_name>[\w ]+)/edit/$', course_views.update_course, name='edit'),
-
+    url(r'^professor/(?P<quiz_title>[\w ]+)/editq/$', course_views.update_quiz, name='editquiz'),
     url(r'^professor/(?P<course_name>[\w ]+)/students/$', course_views.list_students, name='list_students'),
     url(r'^professor/(?P<course_name>[\w ]+)/students/(?P<student_id>[\d ]+)/remove/$',
         course_views.remove_students, name='remove_students'),
@@ -34,4 +35,6 @@ urlpatterns = [
     url(r'^professor/link/delete/(?P<yt_id>[\d ]+)/$', course_views.delete_yt_link, name='delete_link'),
 
     url(r'^professor/file/delete/(?P<file_id>[\d ]+)/$', course_views.delete_file, name='delete_file'),
+
+    
 ]

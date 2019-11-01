@@ -35,7 +35,7 @@
                 <td>{{ instance.course_created_date }}</td>
                 <td>
                   <a href="{% url 'edit' instance.course_name %}">
-                    <input class='btn btn-primary btn-sm' type='submit' value='Edit Course'/>
+                    <input class='btn btn-primary btn-sm' type='submit' value='Edit Name'/>
                   </a>
                   <a href="{% url 'delete' instance.course_name %}">
                     <input class='btn btn-danger btn-sm' type='submit' value='Delete Course'/>
@@ -50,6 +50,49 @@
         {% endif %}
       </div>
   </div>
-</div>
+  <hr>
+
+  <div class="row">
+    <div class="col-md-4">
+      <form method='POST' action=''>
+        {% csrf_token %}
+        {{ add_quiz_form|crispy }}
+        <input class='btn btn-primary' type='submit' value='Add quiz'/>
+      </form>
+    </div>
+  
+    <div class="col-md-8">
+      {% if queryset_quiz %}
+        <table class="table table-condensed table-hover generic-table table-bordered table-striped">
+          <thead>
+          <tr>
+            <th>Quiz name</th>
+            <th>Date created</th>
+            <th>Action</th>
+          </tr>
+          </thead>
+          {% for instance in queryset_quiz %}
+            <tr>
+              <td><a href="{% url 'add_question' instance.quiz_title %}">{{ instance.quiz_title }}</a></td>
+              <td>{{ instance.course_created_date }}</td>
+              <td>
+                <a href="{% url 'editquiz' instance.quiz_title %}">
+                  <input class='btn btn-primary btn-sm' type='submit' value='Edit Name'/>
+                </a>
+                <a href="{% url 'deletequiz' instance.quiz_title %}">
+                  <input class='btn btn-danger btn-sm' type='submit' value='Delete Quiz'/>
+                </a>
+                <a href="{% url 'result_quiz' instance.quiz_title  %}">
+                  <input class='btn btn-info btn-sm' type='submit' value='Quiz Results'/>
+                </a>
+          
+              </td>
+            </tr>
+          {% endfor %}
+        </table>
+      {% endif %}
+    </div>
+  </div>
+
 
 {% endblock %}

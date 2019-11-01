@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+
+{% block content %}
+<link href="{% static "static/css/professor.css" %}" rel="stylesheet"/>
+  {% include 'breadcrumb.html' %}
+    <div class="container mt-5">
+    <div class="row">
+        <div class="col-md-8">
+        <div class="card">
+            <h1 class="uk-container uk-container-center">{{ current_quiz.quiz_title }}</h1>
+            
+            <br>
+            <table class="table table-condensed table-hover generic-table table-bordered table-striped">
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Student Name</th>
+                  <th scope="col">Score</th>
+                </tr>
+              </thead>
+              <tbody>
+              {% for key, value in dict.items %}
+
+                <tr>
+                  <th scope="row">{{ forloop.counter }}</th>
+                  <td>{{ key.user.username }}</a></td>
+                  <td>{{ value.score }}</td>
+                </tr>
+              {% endfor %}
+              </tbody>
+            </table>
+        </div>
+        </div>
+    </div>
+    </div>
+{% endblock  %}

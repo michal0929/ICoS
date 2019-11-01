@@ -1,5 +1,6 @@
-from courses.forms import AddCourseForm
+from courses.forms import AddCourseForm, AddQuizForm
 from courses.models import *
+from quiz.models import *
 from .forms import *
 from .forms import UserDetailsChangeForm ,UserPasswordChangeForm
 from django.contrib.auth.hashers import make_password
@@ -93,13 +94,25 @@ def admin(request):
 @user_passes_test(lambda user: user.is_professor)
 def professor(request):
     add_course_form = AddCourseForm(request.POST or None)
+    add_quiz_form = AddQuizForm(request.POST or None)
     queryset_course = Course.objects.filter(user__username=request.user)
+    queryset_quiz = Test.objects.filter(teacher__username=request.user )
 
     context = {
         "title": "Professor",
         "add_course_form": add_course_form,
+        "add_quiz_form": add_quiz_form,
         "queryset_course": queryset_course,
+        "queryset_quiz": queryset_quiz,
     }
+    
+    if add_quiz_form.is_valid():
+        quiz_title = add_quiz_form.cleaned_data.get("quiz_title")
+        instance = add_quiz_form.save(commit=False)
+        instance.teacher = request.user
+        instance.save()
+    
+        return redirect(reverse('add_question', kwargs={'quiz_title': quiz_title}))
 
     if add_course_form.is_valid():
         course_name = add_course_form.cleaned_data.get("course_name")

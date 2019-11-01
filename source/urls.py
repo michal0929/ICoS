@@ -27,6 +27,7 @@ urlpatterns = [
 
     url(r'^admin/', admin.site.urls),
     url(r'^courses/', include('courses.urls')),
+    url(r'^quiz/', include('quiz.urls')),
     url(r'^forum/', include('forum.urls')),
     url(r'^profile/', include('users.urls')),
     url(r'^accounts/', include('registration.backends.default.urls')),

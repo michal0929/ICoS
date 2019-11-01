@@ -24,6 +24,11 @@
           <li><a href="{% url 'courses' %}">Courses</a></li>
         {% endif %}
 
+        {% url 'add_question' quiz_title slug as add_question_url %} 
+        {% if request.get_full_path ==  add_question_url %}
+          <li><a href="{% url 'add_question' quiz_title %}">{{ quiz_title }}</a></li>
+        {% endif %}
+
         {% url 'chapter' course_name slug as chapter_url %}
         {% if request.get_full_path ==  chapter_url %}
           <li><a href="{% url 'professor_course' course_name %}">{{ course_name }}</a></li>
