@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+
+{% block content %}
+<link href="{% static "static/css/professor.css" %}" rel="stylesheet"/>
+  {% include 'breadcrumb.html' %}
+  <div class="uk-width-1-1">
+      <div class="row">
+          <div class="col-md-8">
+          <div class="card">
+              <table class="table">
+                <thead class="thead-dark">
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Quiz</th>
+                    <th scope="col">Teacher</th>
+                    <th scope="col">Score</th>
+                  </tr>
+                </thead>
+                <tbody>
+                {% for score in all_score %}
+                  <tr>
+                    <th scope="row">{{ forloop.counter }}</th>
+                    <td><center>{{ score.quiz.quiz_title }}</center></td>
+                    <td><center>{{ score.quiz.teacher.username }}</center></td>
+                    <td><center>{{ score.score }} %</center></td>
+                  </tr>
+                {% endfor %}
+                </tbody>
+              </table>
+          </div>
+          </div>
+        </div>
+      </div>
+    
+{% endblock  %}

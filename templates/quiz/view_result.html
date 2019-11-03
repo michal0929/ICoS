@@ -9,7 +9,7 @@
     <div class="row">
         <div class="col-md-8">
         <div class="card">
-            <h1 class="uk-container uk-container-center">{{ current_quiz.quiz_title }}</h1>
+            <h1 class="uk-container uk-container-center"></h1>
             
             <br>
             <table class="table table-condensed table-hover generic-table table-bordered table-striped">
@@ -20,12 +20,12 @@
                 </tr>
               </thead>
               <tbody>
-              {% for key, value in dict.items %}
+              {% for user, value in dict.items %}
 
                 <tr>
                   <th scope="row">{{ forloop.counter }}</th>
-                  <td>{{ key.user.username }}</a></td>
-                  <td>{{ value.score }}</td>
+                  <td>{{ user.username }}</a></td>
+                  <td>{{ value.score }}%</td>
                 </tr>
               {% endfor %}
               </tbody>

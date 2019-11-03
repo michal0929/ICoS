@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+
+{% block content %}
+<link href="{% static "static/css/professor.css" %}" rel="stylesheet"/>
+  {% include 'breadcrumb.html' %}
+  <div class="uk-width-1-1">
+        <div class="row">
+        <div class="col-md-10 mt-5">
+        <div class="card">
+          <div class="card-header">
+            Question.
+          </div>
+          <div class="card-body">
+            <h2 class="card-title">{{ question.question_text }}</h2>
+            <dr></dr>
+            <form action="{% url 'quiz' question.quiz.pk question.pk %}" method="post">
+            {% csrf_token %}
+                {% for option in question.options_set.all %}
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="option" id="opt1" value="{{ option.option_text }}">
+                  <label class="form-check-label" for="opt1">
+                    {{ option.option_text }}
+                  </label>
+                </div>
+                {% endfor %}
+                <button type="submit" class='btn btn-block btn-primary' >Submit</button>
+            </form>
+
+          </div>
+        </div>
+{% endblock  %}

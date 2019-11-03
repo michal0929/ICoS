@@ -252,3 +252,7 @@ def student_course(request, course_name, slug=None):
     else:
         raise Http404
 
+@login_required
+def scoreboard(request):
+    all_score = Score.objects.filter(student=request.user)
+    return render(request, 'users/scoreboarduser.html', {"title": 'Quiz Scoreboard ','all_score': all_score})

@@ -5,9 +5,9 @@
 {% block content %}
 <link href="{% static "static/css/professor.css" %}" rel="stylesheet"/>
   {% include 'breadcrumb.html' %}
-  <div class="container-fluid">
+  <div class="uk-width-1-1">
       <div class="row">
-          <div class="col-sm-7">
+          <div class="col-lg-7">
               <div class="card">
                   <div class="card-body">
                       <nav aria-label="breadcrumb">
@@ -52,7 +52,7 @@
                   </div>
               </div>
           </div>
-          <div class="col-sm-5">
+          <div class="col-lg-5">
               <div class="card">
                   <div class="card-body">
                       <nav aria-label="breadcrumb">
@@ -67,7 +67,7 @@
                             <th scope="row">{{ forloop.counter }}</th>
                             <td>{{ ques.question_text }}</td>
                             <td>
-                                    <a href="{% url 'delete_question' ques.question_text %}">
+                                    <a href="{% url 'delete_question' ques.id %}">
                                       <input class='btn btn-danger btn-sm' type='submit' value='Delete'/>
                                     </a>
                             </td>        

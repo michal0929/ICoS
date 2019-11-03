@@ -29,11 +29,13 @@
               <div class="uk-dropdown uk-dropdown-navbar uk-dropdown-bottom" aria-hidden="true" tabindex="" style="top: 40px; left: 0px;">
                 <ul class="uk-nav uk-nav-navbar">
                     <li class="uk-nav-header"> My account</li>
-                      {% if  user.is_site_admin %}
+                      {% if  user.is_site_admin or user.is_professor %}
                       <li><a href="{% url 'profile' %}"><span class="glyphicon glyphicon-briefcase"></span> Management</a>
                       </li>
                       {% else %}
-                      <li><a href="{% url 'profile' %}"><span class="glyphicon glyphicon-paperclip"></span> Individual courses</a>
+                      <li><a href="{% url 'profile' %}"><span class="glyphicon glyphicon-paperclip"></span> Individual course</a>
+                      </li>
+                      <li><a href="{% url 'scoreboard' %}"><span class="glyphicon glyphicon-list-alt"></span> Quiz scoreboard</a>
                       </li>
                       {% endif %}
                   {% if user.is_site_admin %}

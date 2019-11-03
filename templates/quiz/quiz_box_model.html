@@ -5,9 +5,40 @@
     <link href="{% static "static/css/quiz.css" %}" rel="stylesheet"/>
     <div class="row">
       {% if all_quiz %}
+      <h1>Solve Quiz</h1>
+   
+      <hr>
         {% for quiz in all_quiz %}
+        {% if quiz in request.user.student.all %}
+        {% else %}
+        
+              <div class="col-md-4 course-box-model">
+                  <a href="{% url 'quiz' quiz.id quiz.question_set.first.id %}">
+                    <div class="inner-wrap">
+                      <div class="inner-top">
+                        {{ quiz.quiz_title  }}
+                      </div>
+                      <div class="inner-middle"></div>
+                      <div class="inner-bottom">
+                        <span class="author">Author:{{ quiz.teacher.username  }} </span>
+                        <span class="course-type">{{ quiz.question_set.count }} questions</span>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+                 
+              {% endif%}
+              {% endfor %}
+            </div>
+              <div class="row">
+              <h1>View Response Quiz</h1>
+              <hr>
+              {% for quiz in all_quiz %}
+              {% if quiz in request.user.student.all %}
+              
+      
           <div class="col-md-4 course-box-model">
-            <a href=""">
+            <a href="{% url 'response' request.user.username quiz.id %}">
               <div class="inner-wrap">
                 <div class="inner-top">
                   {{ quiz.quiz_title  }}
@@ -20,8 +51,12 @@
               </div>
             </a>
           </div>
+          {% else %}
+          {% endif%}
         {% endfor %}
+   
       {% endif %}
+    </div>
     </div>
   </div>
 

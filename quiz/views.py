@@ -43,8 +43,8 @@ def add_question(request, quiz_title):
             return render(request, 'quiz/add_question.html', {"title":quiz.quiz_title,'questions': question, 'quiz': quiz})
 
 @user_passes_test(lambda user: user.is_professor)
-def delete_question(request, question_text):
-    instance = Question.objects.get(question_text=question_text)
+def delete_question(request, question_id = None):
+    instance = Question.objects.get(id=question_id)
     instance.delete()
     return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 
@@ -67,4 +67,56 @@ def view_result(request, quiz_title):
 
 
 
+def quiz_home(request, quiz_id, question_id):
+    quiz = Test.objects.get(id=quiz_id)
+    question = Question.objects.get(quiz=quiz, id=question_id)
+    # to get the primary key value of next record(question)
+    next_id = question_id
+    qid= int (question_id)
+    for q in Question.objects.filter(quiz=quiz).order_by('-id'):
+        if q.id > qid:
+            next_id = q.id
+    quiz.student.add(request.user)
+    if request.method == "POST":
+
+        selected_option = request.POST.get('option')
+        res = Response.objects.create(question=question, selected_option=selected_option)
+        res.student.add(request.user)
+        qid= int (question_id)
+        if qid < quiz.question_set.last().id:
+            return redirect('/quiz/' + str(quiz_id) + '/' + str(next_id))
+        else:
+            return redirect('/quiz/' + str(quiz_id)+'/score')
+    else:
+        return render(request, 'quiz/quiz.html', {"title":quiz.quiz_title,'question': question})
+
+
+def evaluate(request, quiz_id):
+    quiz = Test.objects.get(id=quiz_id)
+    questions = Question.objects.filter(quiz=quiz)
+    sc = 0
+    x = 0
+    for question in questions:
+        x = x + 1
+        user_response = request.user.response_set.get(question=question)
+        user_answer = str(user_response.selected_option)
+        correct_answer = str(Options.objects.get(question=question, is_correct=True))
+        if user_answer == correct_answer:
+            sc = sc + 1
+    sc = sc/x *100 
+    sc = Score.objects.create(quiz=quiz, score=sc)
+    sc.student.add(request.user)
+
+    return render(request, 'quiz/quiz_finish.html', {"title": 'Finish ' +quiz.quiz_title,'score': sc})
+
+def view_response(request, username, quiz_id):
+    user = Profile.objects.get(username=username)
+   
+
+    quiz = Test.objects.get(id=quiz_id, student=user)
+    question = Question.objects.filter(quiz=quiz)
+    correct_answer = Options.objects.get(question=question, is_correct=True)
+    response = Response.objects.filter(question__quiz=quiz, student=user)
+    return render(request, 'quiz/show_response.html',
+                    { "title": 'Result ' +quiz.quiz_title,'questions': question, 'responses': response })
 

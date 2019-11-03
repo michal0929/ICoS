@@ -10,4 +10,5 @@ urlpatterns = [
     url(r'^edit/(?P<username>[\w ]+)/$', user_views.update_user, name='update_user'),
     url(r'^delete/(?P<username>[\w ]+)/$', user_views.delete_user, name='delete_user'),
     url(r'^setting/', user_views.update_setting, name='setting_user'),
+    url(r'^scoreboard/', user_views.scoreboard, name='scoreboard'),
 ]

@@ -11,7 +11,7 @@ from django.dispatch import receiver
 
 # Create your models here.
 class Course(models.Model):
-    course_name = models.CharField(unique=True, max_length=20)
+    course_name = models.CharField(unique=True, max_length=40)
     course_created_date = models.DateTimeField(auto_now_add=True)
     user = models.ForeignKey(UserProfile, default=1)
     students = models.ManyToManyField(UserProfile, related_name='students_to_course')
@@ -22,7 +22,7 @@ class Course(models.Model):
 
 
 class Chapter(models.Model):
-    chapter_name = models.CharField(max_length=20)
+    chapter_name = models.CharField(max_length=40)
     chapter_created_date = models.DateTimeField(auto_now_add=True)
     course = models.ForeignKey(Course, on_delete=models.CASCADE, default=1)
     slug = models.SlugField(unique=True)

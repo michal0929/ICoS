@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+
+{% block content %}
+<link href="{% static "static/css/professor.css" %}" rel="stylesheet"/>
+  {% include 'breadcrumb.html' %}
+  <div class="container">
+      <div class="col-lg-offset-4">
+          <div class="card">
+              <div class="card-header">Thank you!!</div>
+              <div class="card-body">
+                  <div class="card-title">
+                      Your score - {{ score }} %
+                  </div>
+                  
+              </div>
+          </div>
+      </div>
+  </div>
+{% endblock  %}

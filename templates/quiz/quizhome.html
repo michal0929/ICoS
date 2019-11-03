@@ -5,13 +5,18 @@
 <h4>Last added:</h4>
 <dl class="uk-description-list-line">
   {% for instance in all_quiz|dictsortreversed:"course_created_date"|slice:"0:3" %}
-  <dt>
-    <a class="uk-link-muted"  href="">{{ instance.quiz_title }}</a>
-  </dt>
-  <dd>
-    <p>Autor: {{ instance.teacher }}</p>
-  </dd>
-  {% endfor %}
+      {% if instance in request.user.student.all %}
+
+      {% else %}
+
+        <dt>
+        <a class="uk-link-muted"  href="{% url 'quiz' instance.id instance.question_set.first.id %}">{{ instance.quiz_title }}</a>
+        </dt>
+        <dd>
+        <p>Autor: {{ instance.teacher }}</p>
+        </dd>
+      {% endif %}
+   {% endfor %}
 </ul>
 <hr style="color: #CCE6FF; border-color: #CCE6FF; background-color: #CCE6FF;">
 {% endblock %}
