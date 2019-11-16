@@ -7,7 +7,7 @@
 	{% endblock %}
 
 	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="viewport" content="width=device-width, initial-scale=0,75">
 	<link rel="icon" 
 	type="image.png" 
 	href="{% static 'static/img/icon.png' %}">
@@ -40,12 +40,14 @@
 
 	{% include 'head_css.html' %}
 </head>
-<body id="body" style="min-width: 1064px;">
+<body id="body" style="min-width: 720px;">
 	{% include 'javascript.html' %}
 	{% include "navbar.html" %}
 	
 	<div class="uk-block uk-containter-center uk-margin-left uk-margin-right uk-margin-top uk-margin-bottom uk-margin-remove-top uk-margin-remove-bottom uk-padding-remove">
+			
 		{% block cotainer_start %} 
+		
 		{% endblock %}
 		<div class="uk-grid">
 			<div class="uk-width-1-5">
@@ -57,7 +59,7 @@
 						{% endblock %}
 						<hr>
 					<h3 class="uk-text-bold"><i class="uk-icon-hashtag"></i> Remember</h3>
-					<div class="uk-grid">
+					<div class="uk-grid" >
 						<div class="uk-width-1-1">
 							
 							
@@ -86,14 +88,17 @@
 					<h3 class="uk-panel-title">
 						{% block breadcrumbs %}{% endblock %}
 					</h3>
-					<div class="uk-grid">
+					<div class="uk-grid"
+					style="padding-left: 25px;">
 						{% block content %} 
+						{% include 'breadcrumb.html' %}
 						{% endblock %}
 					</div>
 				</div>
 			</div>
 		</div>
 		{% block container_end %} 
+		
 		{% endblock %}
 	</div>
 	<br>

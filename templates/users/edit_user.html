@@ -9,13 +9,14 @@
 {% block content %}
   {% include 'breadcrumb.html' %}
     <link href="{% static "css/sysadmin.css" %}" rel="stylesheet"/>
-
+    <div class="uk-width-1-1"> 
   <div class="col-md-2 col-md-offset-5">
     <form method='POST' action=''>
       {% csrf_token %}
       {{ update_user_form|crispy }}
       <input class='btn btn-block btn-primar' type='submit' value='Edit'/>
     </form>
+  </div>
   </div>
 
 {% endblock %}

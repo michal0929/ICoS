@@ -18,6 +18,7 @@
 {% endblock %}
 
 {% block content %}
+{% include 'breadcrumb.html' %}
     <!-- Contact core css -->
     <link href="{% static "static/css/forum.css" %}" rel="stylesheet"/>
     <script src="{% static "js/tinymce/jquery.tinymce.min.js" %}"></script>
@@ -26,7 +27,7 @@
       selector: 'textarea', resize: false
     });
     </script>
-    {% include 'breadcrumb.html' %}
+   
   
     <div class="container">
   

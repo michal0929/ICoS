@@ -18,8 +18,9 @@
 {% endblock %}
 
 {% block content %}
+{% include 'breadcrumb.html' %}
   <link href="{% static 'static/css/sidebar.css' %}" rel="stylesheet"/>
-  {% include 'breadcrumb.html' %}
+  
 
   <div class="container student-course">
     <div class="row">

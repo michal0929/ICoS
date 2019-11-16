@@ -19,10 +19,12 @@
             {% csrf_token %}
                 {% for option in question.options_set.all %}
                 <div class="form-check">
+                  <center>
                   <input class="form-check-input" type="radio" name="option" id="opt1" value="{{ option.option_text }}">
                   <label class="form-check-label" for="opt1">
                     {{ option.option_text }}
                   </label>
+                </center>
                 </div>
                 {% endfor %}
                 <button type="submit" class='btn btn-block btn-primary' >Submit</button>
@@ -30,4 +32,6 @@
 
           </div>
         </div>
+      </div> </div>
+    </div>
 {% endblock  %}
