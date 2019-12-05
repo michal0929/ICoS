@@ -1,6 +1,4 @@
-/**
- * Created by ante on 4/28/16.
- */
+
 $(document).ready(function () {
     // Bind the event handler to the "submit" JavaScript event
     $('.add-topic form').submit(function () {

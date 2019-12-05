@@ -78,7 +78,6 @@ def quiz_home(request, quiz_id, question_id):
             next_id = q.id
     quiz.student.add(request.user)
     if request.method == "POST":
-
         selected_option = request.POST.get('option')
         res = Response.objects.create(question=question, selected_option=selected_option)
         res.student.add(request.user)

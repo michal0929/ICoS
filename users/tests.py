@@ -2,6 +2,7 @@ from django.test import TestCase, RequestFactory
 from django.contrib.auth.hashers import make_password
 from django.contrib.auth import authenticate
 from django.test import Client
+import unittest
 
 from .models import UserProfile
 
@@ -29,3 +30,6 @@ class UserProfileTestCase(TestCase):
         self.assertEqual(response.status_code, 404)
         response = self.client.get('courses', follow=True)
         self.assertEqual(response.status_code, 404)
+
+if __name__ == '__main__':
+    unittest.main()  
