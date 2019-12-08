@@ -6,7 +6,7 @@
 <dl class="uk-description-list-line">
   {% for instance in queryset|dictsortreversed:"course_created_date"|slice:"0:3" %}
   <dt>
-    <a class="uk-link-muted"  href="{% url 'course_homepage' instance.course_name %}">{{ instance.course_name }}</a>
+    <a class="uk-link-muted"  href="{% url 'course_homepage' instance.course_name %}"><h5>{{ instance.course_name }}</h5></a>
   </dt>
   <dd>
     <p>Autor: {{ instance.user }}</p>

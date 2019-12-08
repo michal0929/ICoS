@@ -10,7 +10,7 @@
       {% else %}
 
         <dt>
-        <a class="uk-link-muted"  href="{% url 'quiz' instance.id instance.question_set.first.id %}">{{ instance.quiz_title }}</a>
+        <a class="uk-link-muted"  href="{% url 'quiz' instance.id instance.question_set.first.id %}"><h5>{{ instance.quiz_title }}</h5></a>
         </dt>
         <dd>
         <p>Autor: {{ instance.teacher }}</p>
