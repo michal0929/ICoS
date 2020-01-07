@@ -70,7 +70,6 @@ def view_result(request, quiz_title):
 def quiz_home(request, quiz_id, question_id):
     quiz = Test.objects.get(id=quiz_id)
     question = Question.objects.get(quiz=quiz, id=question_id)
-    # to get the primary key value of next record(question)
     next_id = question_id
     qid= int (question_id)
     for q in Question.objects.filter(quiz=quiz).order_by('-id'):

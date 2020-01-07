@@ -6,7 +6,7 @@ from django.utils.text import slugify
 def initial_course(apps, schema_editor):
     course = apps.get_model(app_label='courses', model_name='Chapter')
 
-    course(chapter_name='John',
+    course( course_name = 'test',
           ).save()
 
 

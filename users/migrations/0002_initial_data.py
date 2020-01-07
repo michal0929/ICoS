@@ -9,18 +9,18 @@ def initial_users(apps, schema_editor):
 
     user(username='user',
          email='username.one@gmail.com',
-         password=make_password('letmein123'),
+         password=make_password('user2020'),
          ).save()
 
-    user(username='professor',
+    user(username='profesor',
          email='username.two@gmail.com',
-         password=make_password('letmein123'),
+         password=make_password('profesor2020'),
          is_professor=True,
          ).save()
 
     user(username='admin',
          email='username.three@gmail.com',
-         password=make_password('letmein123'),
+         password=make_password('admin2020'),
          is_site_admin=True,
          ).save()
 
