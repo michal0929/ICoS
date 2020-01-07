@@ -4,11 +4,10 @@ from django.utils.text import slugify
 
 
 def initial_course(apps, schema_editor):
-    course = apps.get_model(app_label='courses', model_name='Chapter')
+    course = apps.get_model(app_label='courses', model_name='Course')
 
-    course( course_name = 'test',
+    course(course_name = 'test',
           ).save()
-
 
 
 class Migration(migrations.Migration):

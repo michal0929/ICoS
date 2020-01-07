@@ -9,11 +9,7 @@ def initial_topic(apps, schema_editor):
     topic(author='John',
           subject='I like this forum!',
           slug=slugify('I like this forum!'),
-          topic_message='Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent id commodo turpis.'
-                        ' Phasellus at congue ipsum. Aliquam congue mi at faucibus porttitor. Sed lectus magna, luctus'
-                        ' ac felis a, ultricies tincidunt massa. Etiam sit amet convallis orci, eu pellentesque nisi.'
-                        ' Pellentesque eu egestas arcu. Curabitur venenatis pulvinar diam, at ullamcorper nisi pharetra'
-                        ' eleifend. '
+          topic_message='...'
           ).save()
 
 
